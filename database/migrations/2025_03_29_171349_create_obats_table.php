@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_obat', 50);
             $table->string('kemasan', 35);
+            $table->integer('harga');
             $table->timestamps();
         });
     }
