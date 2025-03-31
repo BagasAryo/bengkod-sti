@@ -13,6 +13,7 @@ class Obat extends Model
         'harga'
     ];
 
+    // satu obat bisa ada banyak detail pemeriksaan
     public function obat(): HasMany
     {
         return $this->hasMany(Detail_periksa::class, 'id_obat');

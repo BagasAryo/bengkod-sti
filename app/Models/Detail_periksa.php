@@ -12,6 +12,7 @@ class Detail_periksa extends Model
         'id_obat'
     ];
 
+    // detail pemeriksaan hanya terkait satu pemeriksaan dan satu obat
     public function periksa(): BelongsTo
     {
         return $this->belongsTo(Periksa::class, 'id_periksa');

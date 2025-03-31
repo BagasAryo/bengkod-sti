@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Detail_periksa;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        $this->call([UserSeeder::class, PeriksaSeeder::class, ObatSeeder::class]);
+        $this->call([UserSeeder::class, PeriksaSeeder::class, ObatSeeder::class, DetailPeriksaSeeder::class]);
     }
 }
