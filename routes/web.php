@@ -32,6 +32,20 @@ Route::get('/pasien/dashboard', function(){
     return view('pasien.dashboard');
 })->name('pasien.dashboard');
 
-Route::get('pasien/periksa', function(){
+Route::get('/pasien/periksa', function(){
     return view('pasien.periksa');
 })->name('pasien.periksa');
+
+Route::get('/pasien/riwayat', function(){
+    $periksas = Periksa::all();
+    return view('pasien.riwayat', compact('periksas'));
+})->name('pasien.riwayat');
+
+// Authentication
+Route::get('/auth/login', function(){
+    return view('auth.login');
+})->name('auth.login');
+
+Route::get('/auth/register', function(){
+    return view('auth.register');
+})->name('auth.register');

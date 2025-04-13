@@ -36,7 +36,7 @@
 @endsection
 
 @section('content')
-    <div class="card card-success mb-4">
+    <div class="card card-success mb-4 col-md-5">
         <div class="card-header">
             <div class="card-title">Periksa</div>
         </div>
@@ -45,17 +45,23 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama Anda</label>
-                    <input class="form-control" id="nama"/>
+                    <input type="text" class="form-control" id="nama"/>
                 </div>
                 <div class="mb-3">
                     <label for="pilih_dokter" class="form-label">Dokter</label>
-                    <input type="password" class="form-control" id="pilih_dokter" />
+                    <select name="pilih_dokter" id="pilih_dokter" class="form-select">
+                        <option selected disabled>-- Pilih Dokter --</option>
+                        <option value="dr_andi">Dr. Andi</option>
+                        <option value="dr_budi">Dr. Budi</option>
+                        <option value="dr_citra">Dr. Citra</option>
+                        <option value="dr_dina">Dr. Dina</option>
+                    </select>
                 </div>
             </div>
             <!--end::Body-->
             <!--begin::Footer-->
             <div class="card-footer">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Daftar</button>
             </div>
             <!--end::Footer-->
         </form>
