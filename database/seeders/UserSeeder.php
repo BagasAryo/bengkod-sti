@@ -31,6 +31,22 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'role' => 'pasien',
             ],
+            [
+                'nama' => 'dr. Yasmeen',
+                'alamat' => 'Tangerang Selatan',
+                'no_hp' => '0812348778',
+                'email' => 'yasmeen.dokter@gmail.com',
+                'password' => Hash::make('password'),
+                'role' => 'dokter',
+            ],
+            [
+                'nama' => 'dr. Feitan',
+                'alamat' => 'Semarang',
+                'no_hp' => '0812342998',
+                'email' => 'feitan.dokter@gmail.com',
+                'password' => Hash::make('password'),
+                'role' => 'dokter',
+            ],
         ]);
     }
 }

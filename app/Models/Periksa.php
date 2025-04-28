@@ -11,9 +11,9 @@ class Periksa extends Model
     protected $fillable = [
         'id_pasien',
         'id_dokter',
-        'tanggal',
-        'keluhan',
-        'diagnosis'
+        'tgl_periksa',
+        'catatan',
+        'biaya_periksa'
     ];
 
     // pemeriksaan ini milik satu pasien

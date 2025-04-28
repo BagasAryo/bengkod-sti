@@ -48,26 +48,24 @@
   <div class="card mb-4">
     {{-- begin::card-body --}}
     <div class="card-body">
-      <table class="table table-bordered">
+      <table class="table table-bordered text-center">
         <thead>
           <tr>
-            <th style="width: 10px">No.</th>
-            <th>Id Periksa</th>
-            <th>Pasien</th>
-            <th>Tanggal Periksa</th>
-            <th>Catatan</th>
-            <th>Biaya Periksa</th>
+            <th style="width: 100px">Id Periksa</th>
+            <th>Nama Pasien</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($periksas as $periksa)
             <tr class="align-middle">
-              <td>{{ $loop->iteration }}</td>
               <td>{{ $periksa->id }}</td>
               <td>{{ $periksa->pasien->nama }}</td>
-              <td>{{ $periksa->tgl_periksa }}</td>
-              <td>{{ $periksa->catatan }}</td>
-              <td>{{ $periksa->biaya_periksa }}</td>
+              <td>
+                <a href="{{ route('dokter.periksa.show', $periksa->id) }}" class="btn btn-info">Lihat</a>
+                <a href="{{ route('dokter.periksa.edit', $periksa->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('dokter.periksa.destroy', $periksa->id) }}" class="btn btn-danger">Hapus</a>
+              </td>
             </tr>
           @endforeach
         </tbody>

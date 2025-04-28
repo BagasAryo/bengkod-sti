@@ -11,7 +11,7 @@
     integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous" />
 </head>
 
-<body class="bg-light p-5">
+<body class="p-5" style="background: rgba(0, 0, 0, 0.5)">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">

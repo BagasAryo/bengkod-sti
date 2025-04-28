@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PeriksaController;
+use App\Http\Controllers\PeriksaPasienController;
+use App\Http\Controllers\RiwayatController;
 use App\Models\Obat;
 use App\Models\Periksa;
 use Illuminate\Support\Facades\Route;
@@ -41,23 +44,37 @@ Route::get('/pasien/dashboard', function(){
 })->name('pasien.dashboard');
 
 // no crud function
-Route::get('/pasien/periksa', function(){
-    return view('pasien.periksa');
-})->name('pasien.periksa');
+// Route::get('/pasien/periksa', function(){
+//     return view('pasien.periksa');
+// })->name('pasien.periksa');
 
-Route::get('/pasien/riwayat', function(){
-    $periksas = Periksa::all();
-    return view('pasien.riwayat', compact('periksas'));
-})->name('pasien.riwayat');
+// Route::get('/pasien/riwayat', function(){
+//     $periksas = Periksa::all();
+//     return view('pasien.riwayat', compact('periksas'));
+// })->name('pasien.riwayat');
 
 // crud function with resource
-// Route::get();
+Route::resource('/pasien/periksa', PeriksaPasienController::class)->names('pasien.periksa');
+
+Route::resource('/pasien/riwayat', RiwayatController::class)->names('pasien.riwayat');
 
 // Authentication
-Route::get('/auth/login', function(){
-    return view('auth.login');
-})->name('auth.login');
+// Route::get('/auth/login', function(){
+//     return view('auth.login');
+// })->name('auth.login');
 
-Route::get('/auth/register', function(){
-    return view('auth.register');
-})->name('auth.register');
+// Route::get('/auth/register', function(){
+//     return view('auth.register');
+// })->name('auth.register');
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.perform');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Route::get('/denied', function(){
+//     return view('auth.denied');
+// })->name('denied');

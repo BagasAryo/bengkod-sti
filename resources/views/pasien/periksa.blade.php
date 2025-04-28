@@ -53,10 +53,9 @@
           <label for="pilih_dokter" class="form-label">Dokter</label>
           <select name="pilih_dokter" id="pilih_dokter" class="form-select">
             <option selected disabled>-- Pilih Dokter --</option>
-            <option value="dr_andi">Dr. Andi</option>
-            <option value="dr_budi">Dr. Budi</option>
-            <option value="dr_citra">Dr. Citra</option>
-            <option value="dr_dina">Dr. Dina</option>
+            @foreach ($dokters as $dokter)
+                <option value="{{ $dokter->nama }}">{{ $dokter->nama }}</option>
+            @endforeach
           </select>
         </div>
       </div>

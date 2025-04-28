@@ -55,21 +55,23 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($periksas as $periksa)
+          @foreach ($riwayat as $item)
             <tr class="align-middle">
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $periksa->id }}</td>
-              <td>{{ $periksa->dokter->nama }}</td>
-              <td>{{ $periksa->tgl_periksa }}</td>
-              <td>{{ $periksa->catatan }}</td>
+              <td>{{ $item->id }}</td>
+              <td>{{ $item->dokter->nama }}</td>
+              <td>{{ $item->tgl_periksa }}</td>
+              <td>{{ $item->catatan }}</td>
               <td>
                 <ul class="mb-0">
-                  @foreach ($periksa->detailPeriksa as $detail)
+                  @forelse ($item->detailPeriksa as $detail)
                     <li>{{ $detail->obat->nama_obat }}</li>
-                  @endforeach
+                  @empty
+                    <li>Tidak ada obat</li>
+                  @endforelse
                 </ul>
               </td>
-              <td>{{ $periksa->biaya_periksa }}</td>
+              <td>Rp{{ number_format($item->biaya_periksa, 0, ',', '.') }}</td>
             </tr>
           @endforeach
         </tbody>
