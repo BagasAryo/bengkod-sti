@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <label for="tgl_periksa">Tanggal Periksa</label>
-          <input type="date" class="form-control" name="tgl_periksa" value="{{ $periksa->tgl_periksa }}" required>
+          <input type="date" class="form-control" name="tgl_periksa" value="{{ \Carbon\Carbon::parse($periksa->tgl_periksa)->format('Y-m-d') }}" required>
         </div>
 
         <div class="form-group">

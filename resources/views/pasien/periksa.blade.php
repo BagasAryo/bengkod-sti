@@ -42,19 +42,20 @@
     <div class="card-header">
       <div class="card-title">Periksa</div>
     </div>
-    <form>
+    <form action="{{ route('pasien.periksa.store') }}" method="POST">
+      @csrf
       <!--begin::Body-->
       <div class="card-body">
         <div class="mb-3">
           <label for="nama" class="form-label">Nama Anda</label>
-          <input type="text" class="form-control" id="nama" />
+          <input type="text" class="form-control" id="nama" value="{{ Auth::user()->nama }}" readonly />
         </div>
         <div class="mb-3">
-          <label for="pilih_dokter" class="form-label">Dokter</label>
-          <select name="pilih_dokter" id="pilih_dokter" class="form-select">
+          <label for="dokter_id" class="form-label">Dokter</label>
+          <select name="dokter_id" id="dokter_id" class="form-select">
             <option selected disabled>-- Pilih Dokter --</option>
             @foreach ($dokters as $dokter)
-                <option value="{{ $dokter->nama }}">{{ $dokter->nama }}</option>
+              <option value="{{ $dokter->id }}">{{ $dokter->nama }}</option>
             @endforeach
           </select>
         </div>

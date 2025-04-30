@@ -64,7 +64,13 @@
               <td>
                 <a href="{{ route('dokter.periksa.show', $periksa->id) }}" class="btn btn-info">Lihat</a>
                 <a href="{{ route('dokter.periksa.edit', $periksa->id) }}" class="btn btn-warning">Edit</a>
-                <a href="{{ route('dokter.periksa.destroy', $periksa->id) }}" class="btn btn-danger">Hapus</a>
+                <form action="{{ route('dokter.periksa.destroy', $periksa->id) }}" method="POST" style="display: inline-block">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger"
+                    onclick="return confirm('Apakah anda yakin ingin menghapus data periksa pasien {{ $periksa->pasien->nama }}')">Hapus
+                  </button>
+                </form>
               </td>
             </tr>
           @endforeach

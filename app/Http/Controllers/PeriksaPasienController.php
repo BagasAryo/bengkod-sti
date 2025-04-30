@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Periksa;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeriksaPasienController extends Controller
 {
@@ -29,7 +32,17 @@ class PeriksaPasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'dokter_id' => 'required|exists:users,id'
+        ]);
+
+        Periksa::create([
+            'id_pasien' => Auth::id(),
+            'id_dokter' =>$request->dokter_id,
+            'tgl_periksa' => Carbon::now()
+        ]);
+
+        return redirect()->route('pasien.riwayat.index')->with('success', 'Data periksa berhasil disimpan.');
     }
 
     /**
